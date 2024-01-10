@@ -1,0 +1,35 @@
+/* src/app/sidebar/sidebar.component.css */
+
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    transition: width 0.3s;
+  }
+
+  .collapsed {
+    width: 50px;
+  }
+
+  .section {
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-weight: bold;
+  }
+
+  .submenu {
+    margin-left: 15px;
+  }
+
+  .submenu-item {
+    margin-bottom: 5px;
+  }
+
+  .hidden {
+    display: none;
+  }
