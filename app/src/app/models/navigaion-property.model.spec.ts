@@ -1,6 +1,6 @@
 import { NavigationProperty } from "./navigaion-property.model";
 
-fdescribe('NavigationProperty', () => {
+describe('NavigationProperty', () => {
     it('should create an instance', () => {
         expect(new NavigationProperty()).toBeTruthy();
     });

@@ -24,12 +24,5 @@ export class SidebarService {
         throw error;
       })
     );
-
-    // return new Observable<NavigationSection[]>(observer => {
-    //   const navigationSections: NavigationSection[] = NavigationSection.getNavigationSections();
-
-    //   observer.next(navigationSections);
-    //   observer.complete();
-    // });
   }
 }

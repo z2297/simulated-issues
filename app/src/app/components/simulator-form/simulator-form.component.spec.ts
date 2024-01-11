@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Simulator } from '../../models/simulator.model';
 import { By } from '@angular/platform-browser';
 
-fdescribe('SimulatorFormComponent', () => {
+describe('SimulatorFormComponent', () => {
   let component: SimulatorFormComponent;
   let fixture: ComponentFixture<SimulatorFormComponent>;
 

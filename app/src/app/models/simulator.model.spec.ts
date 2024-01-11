@@ -1,6 +1,6 @@
 import { Simulator } from "./simulator.model";
 
-fdescribe('Simulator', () => {
+describe('Simulator', () => {
     it('should create an instance', () => {
         expect(new Simulator()).toBeTruthy();
     });

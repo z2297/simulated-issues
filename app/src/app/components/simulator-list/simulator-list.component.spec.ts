@@ -8,7 +8,7 @@ import { of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { By } from '@angular/platform-browser';
 
-fdescribe('SimulatorListComponent', () => {
+describe('SimulatorListComponent', () => {
   let component: SimulatorListComponent;
   let fixture: ComponentFixture<SimulatorListComponent>;
 

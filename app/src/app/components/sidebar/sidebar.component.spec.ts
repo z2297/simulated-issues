@@ -9,7 +9,7 @@ import { NavigationSection } from '../../models/navigation-section.model';
 import { By } from '@angular/platform-browser';
 import { NavigationProperty } from '../../models/navigaion-property.model';
 
-fdescribe('SidebarComponent', () => {
+describe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
 

@@ -8,7 +8,7 @@ import { of, throwError } from 'rxjs';
 import { Simulator } from '../../models/simulator.model';
 import { SimulatorFormComponent } from '../simulator-form/simulator-form.component';
 
-fdescribe('EditSimulatorComponent', () => {
+describe('EditSimulatorComponent', () => {
   let component: EditSimulatorComponent;
   let fixture: ComponentFixture<EditSimulatorComponent>;
 

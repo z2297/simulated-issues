@@ -7,7 +7,7 @@ import { SimulatorFormComponent } from '../simulator-form/simulator-form.compone
 import { Simulator } from '../../models/simulator.model';
 import { of, throwError } from 'rxjs';
 
-fdescribe('CreateSimulatorComponent', () => {
+describe('CreateSimulatorComponent', () => {
   let component: CreateSimulatorComponent;
   let fixture: ComponentFixture<CreateSimulatorComponent>;
 
