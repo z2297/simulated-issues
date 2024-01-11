@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SimulatorService } from '../../services/simulator-service.service';
 import { Simulator } from '../../models/simulator.model';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-simulator-list',

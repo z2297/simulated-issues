@@ -10,18 +10,14 @@ import { SimulatorFormComponent } from '../simulator-form/simulator-form.compone
   templateUrl: './create-simulator.component.html',
   styleUrl: './create-simulator.component.scss'
 })
-export class CreateSimulatorComponent implements OnInit {
+export class CreateSimulatorComponent {
   constructor(private readonly simulatorService: SimulatorService) { }
 
   simulator: Simulator = new Simulator();
 
-  ngOnInit(): void {
-
-  }
-
   onCreateSimulator(simulator: Simulator): void {
     this.simulatorService.createSimulator(simulator).subscribe({
-      next: () => {
+      next: (_: any) => {
         console.log('Simulator created');
       },
       error: (error) => {

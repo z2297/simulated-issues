@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Simulator } from '../../models/simulator.model';
 
@@ -10,24 +10,29 @@ import { Simulator } from '../../models/simulator.model';
   templateUrl: './simulator-form.component.html',
   styleUrl: './simulator-form.component.scss'
 })
-export class SimulatorFormComponent implements OnChanges {
+export class SimulatorFormComponent implements OnInit {
   @Input() simulator!: Simulator;
-  @Output() simulatorCreated: EventEmitter<Simulator> = new EventEmitter<Simulator>();
+  @Output() simulatorSaved: EventEmitter<Simulator> = new EventEmitter<Simulator>();
 
   simulatorForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
-  ngOnChanges(): void {
+  ngOnInit(): void {
     this.createForm();
     this.setForm();
   }
 
   addressValidator(control: AbstractControl): { [key: string]: boolean } | null {
     const value: string = control.value;
-    const numbers = value.match(/\d/g) ?? [];
-    const spaces = value.match(/\s\w/g) ?? [];
 
-    if (numbers.length >= 2 && spaces.length >= 2) {
+    if (!value) {
+      return null;
+    }
+
+    const numbers = value.match(/\d/g);
+    const spaces = value.match(/\s\w/g);
+
+    if (numbers!.length >= 2 && spaces!.length >= 2) {
       return null;
     } else {
       return { 'validAddress': true };
@@ -59,6 +64,6 @@ export class SimulatorFormComponent implements OnChanges {
       return;
 
     this.setModel();
-    this.simulatorCreated.emit(this.simulator);
+    this.simulatorSaved.emit(this.simulator);
   }
 }
