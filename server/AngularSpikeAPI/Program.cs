@@ -1,3 +1,7 @@
+using AngularSpike.DataAccess;
+using AngularSpike.Domain.Queries;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 var DevelopmentOrigins = "DevelopmentOrigins";
 
@@ -7,6 +11,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining(typeof(GetSimulator)));
+builder.Services.AddDbContext<SpikeInMemoryDbContext>(options => options.UseInMemoryDatabase("SpikeInMemoryDbContext"));
 
 builder.Services.AddCors(options =>
 {
@@ -20,7 +26,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

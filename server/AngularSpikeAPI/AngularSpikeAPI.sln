@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularSpikeAPI", "AngularSpikeAPI.csproj", "{9BB3720E-8118-4292-B84C-3161D797E06D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularSpikeAPI", "AngularSpikeAPI.csproj", "{9BB3720E-8118-4292-B84C-3161D797E06D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularSpike.Domain", "..\AngularSpike.Domain\AngularSpike.Domain.csproj", "{7A8383F6-5052-4FBC-B041-B8C829D60E1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularSpike.Common", "..\AngularSpike.Common\AngularSpike.Common.csproj", "{3EB4AFC1-BA5E-49E2-AB85-4169136935F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularSpike.DataAccess", "..\AngularSpike.DataAccess\AngularSpike.DataAccess.csproj", "{0B255FF5-303B-441D-8753-DA9709EA9ACE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{9BB3720E-8118-4292-B84C-3161D797E06D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BB3720E-8118-4292-B84C-3161D797E06D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BB3720E-8118-4292-B84C-3161D797E06D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A8383F6-5052-4FBC-B041-B8C829D60E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A8383F6-5052-4FBC-B041-B8C829D60E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A8383F6-5052-4FBC-B041-B8C829D60E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A8383F6-5052-4FBC-B041-B8C829D60E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EB4AFC1-BA5E-49E2-AB85-4169136935F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EB4AFC1-BA5E-49E2-AB85-4169136935F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EB4AFC1-BA5E-49E2-AB85-4169136935F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EB4AFC1-BA5E-49E2-AB85-4169136935F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B255FF5-303B-441D-8753-DA9709EA9ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B255FF5-303B-441D-8753-DA9709EA9ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B255FF5-303B-441D-8753-DA9709EA9ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B255FF5-303B-441D-8753-DA9709EA9ACE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

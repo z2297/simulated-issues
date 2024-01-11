@@ -1,4 +1,4 @@
-﻿namespace AngularSpikeAPI.Models
+﻿namespace AngularSpike.DataAccess.Models
 {
     public class Simulator
     {

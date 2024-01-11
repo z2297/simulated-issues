@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AngularSpikeAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c350c86040ab8ab422d9a52dba6dc04a3c596b28")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7451a1bb8b73c7a56436d2c11ede66e1edeb80f2")]
 [assembly: System.Reflection.AssemblyProductAttribute("AngularSpikeAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AngularSpikeAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
