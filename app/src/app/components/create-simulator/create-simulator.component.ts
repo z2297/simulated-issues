@@ -1,45 +1,32 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { SimulatorServiceService } from '../../services/simulator-service.service';
+import { Simulator } from '../../models/simulator.model';
+import { SimulatorFormComponent } from '../simulator-form/simulator-form.component';
 
 @Component({
   selector: 'app-create-simulator',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [SimulatorFormComponent],
   templateUrl: './create-simulator.component.html',
   styleUrl: './create-simulator.component.scss'
 })
 export class CreateSimulatorComponent implements OnInit {
-  myForm!: FormGroup;
+  constructor(private readonly simulatorService: SimulatorServiceService) { }
 
-  constructor(private formBuilder: FormBuilder) { }
+  simulator: Simulator = new Simulator();
 
   ngOnInit(): void {
-    this.myForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      address: ['', [this.addressValidator]],
+
+  }
+
+  onCreateSimulator(simulator: Simulator): void {
+    this.simulatorService.createSimulator(simulator).subscribe({
+      next: () => {
+        console.log('Simulator created');
+      },
+      error: (error) => {
+        console.error('An error occurred:', error);
+      }
     });
-  }
-
-  addressValidator(control: AbstractControl): { [key: string]: boolean } | null {
-    const value: string = control.value;
-    const numbers = value.match(/\d/g);
-    const words = value.match(/[a-zA-Z]/g);
-    if (numbers && numbers.length >= 2 && words && words.length >= 2) {
-      return null;
-    } else {
-      return { 'validAddress': true };
-    }
-  }
-
-  get formControls() {
-    return this.myForm.controls;
-  }
-
-  onSubmit() {
-    if (this.myForm.valid) {
-      console.log('Form submitted:', this.myForm.value);
-    }
   }
 }
