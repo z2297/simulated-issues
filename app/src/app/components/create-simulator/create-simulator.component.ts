@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SimulatorServiceService } from '../../services/simulator-service.service';
+import { SimulatorService } from '../../services/simulator-service.service';
 import { Simulator } from '../../models/simulator.model';
 import { SimulatorFormComponent } from '../simulator-form/simulator-form.component';
 
@@ -11,7 +11,7 @@ import { SimulatorFormComponent } from '../simulator-form/simulator-form.compone
   styleUrl: './create-simulator.component.scss'
 })
 export class CreateSimulatorComponent implements OnInit {
-  constructor(private readonly simulatorService: SimulatorServiceService) { }
+  constructor(private readonly simulatorService: SimulatorService) { }
 
   simulator: Simulator = new Simulator();
 

@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let simulator of simulators" (click)="editSimulator(simulator.id!)">
+            <td>{{ simulator.id }}</td>
+            <td>{{ simulator.name }}</td>
+            <td>{{ simulator.email }}</td>
+            <td>{{ simulator.address }}</td>
+        </tr>
+    </tbody>
+</table>
+

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Simulator } from '../../models/simulator.model';
 
@@ -10,20 +10,16 @@ import { Simulator } from '../../models/simulator.model';
   templateUrl: './simulator-form.component.html',
   styleUrl: './simulator-form.component.scss'
 })
-export class SimulatorFormComponent implements OnInit {
+export class SimulatorFormComponent implements OnChanges {
   @Input() simulator!: Simulator;
   @Output() simulatorCreated: EventEmitter<Simulator> = new EventEmitter<Simulator>();
 
-  myForm!: FormGroup;
+  simulatorForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.myForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      address: ['', [this.addressValidator]],
-    });
+  ngOnChanges(): void {
+    this.createForm();
+    this.setForm();
   }
 
   addressValidator(control: AbstractControl): { [key: string]: boolean } | null {
@@ -38,13 +34,31 @@ export class SimulatorFormComponent implements OnInit {
     }
   }
 
-  get formControls() {
-    return this.myForm.controls;
+  createForm(): void {
+    this.simulatorForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      address: ['', [this.addressValidator]],
+    });
   }
 
-  onSubmit() {
-    if (this.myForm.valid) {
-      console.log('Form submitted:', this.myForm.value);
-    }
+  setForm(): void {
+    this.simulatorForm.controls['address'].setValue(this.simulator.address);
+    this.simulatorForm.controls['email'].setValue(this.simulator.email);
+    this.simulatorForm.controls['name'].setValue(this.simulator.name);
+  }
+
+  setModel(): void {
+    this.simulator.address = this.simulatorForm.controls['address'].value;
+    this.simulator.email = this.simulatorForm.controls['email'].value;
+    this.simulator.name = this.simulatorForm.controls['name'].value;
+  }
+
+  onSubmit(): void {
+    if (this.simulatorForm.invalid)
+      return;
+
+    this.setModel();
+    this.simulatorCreated.emit(this.simulator);
   }
 }

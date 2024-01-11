@@ -14,7 +14,7 @@ export class NavigationSection {
               navigationProperties: [
                 new NavigationProperty({ id: 1, name: 'Create Simulator', route: 'create-simulator' }),
                 new NavigationProperty({ id: 2, name: 'All Simulators', route: 'all-simulators' }),
-                new NavigationProperty({ id: 3, name: 'Create Simulator', route: 'create-simulator' }),
+                new NavigationProperty({ id: 3, name: 'Edit Simulator', route: 'edit-simulator' }),
               ]}),
             new NavigationSection({
               id: 2,
