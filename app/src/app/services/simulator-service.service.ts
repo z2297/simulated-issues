@@ -1,71 +1,62 @@
 import { Injectable } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 import { Simulator } from '../models/simulator.model';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
+import { environment } from '../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SimulatorService {
+  private readonly controller = "simulator";
+  private readonly baseUrl: string;
 
-  constructor() { }
-
-  createSimulator(simulator: Simulator): Observable<void> {
-    simulator.id = UUID.UUID();
-
-    localStorage.setItem(`simulator-${simulator.id}`, JSON.stringify(simulator));
-
-    return new Observable<void>(observer => {
-      observer.next();
-      observer.complete();
-    });
-  }
-
-  getSimulator(id: string): Observable<Simulator> {
-    const item = localStorage.getItem(`simulator-${id}`);
-
-    if (item) {
-      const simulator = JSON.parse(item) as Simulator;
-
-      return new Observable<Simulator>(observer => {
-        observer.next(simulator);
-        observer.complete();
-      });
-    }
-
-    throw new Error('Simulator not found');
+  constructor(private http: HttpClient) {
+    this.baseUrl = `${environment.apiUrl}`;
   }
 
   getAllSimulators(): Observable<Simulator[]> {
-    let simulators: Simulator[] = [];
-    const simulatorKeys = this.getAllItemsFromLocalStorage('simulator');
+    const url = `${this.baseUrl}/${this.controller}`;
 
-    simulatorKeys.forEach(key => {
-      let item = localStorage.getItem(key);
-      let simulator = JSON.parse(item!) as Simulator;
-      simulators.push(simulator);
-    });
-
-    return new Observable<Simulator[]>(observer => {
-      observer.next(simulators);
-      observer.complete();
-    });
+    return this.http.get<Simulator[]>(url).pipe(
+      catchError((error) => {
+        console.error('An error occurred:', error);
+        throw error;
+      })
+    );
   }
 
-  updateSimulator(simulator: Simulator): Observable<void> {
-    localStorage.removeItem(`simulator-${simulator.id!}`);
+  getSimulator(id: string): Observable<Simulator> {
+    const url = `${this.baseUrl}/${this.controller}/${id}`;
 
-    localStorage.setItem(`simulator-${simulator.id!}`, JSON.stringify(simulator));
-
-    return new Observable<void>(observer => {
-      observer.next();
-      observer.complete();
-    });
+    return this.http.get<Simulator>(url).pipe(
+      catchError((error) => {
+        console.error('An error occurred:', error);
+        throw error;
+      })
+    );
   }
 
-  private getAllItemsFromLocalStorage(prefix: string) {
-    const keys = Object.keys(localStorage);
-    const filteredKeys = keys.filter(key => key.startsWith(prefix));
-    return filteredKeys;
+  createSimulator(simulator: Simulator): Observable<Simulator> {
+    const url = `${this.baseUrl}/${this.controller}`;
+
+    return this.http.post<Simulator>(url, simulator).pipe(
+      catchError((error) => {
+        console.error('An error occurred:', error);
+        throw error;
+      })
+    );
+  }
+
+  updateSimulator(simulator: Simulator): Observable<Simulator> {
+    const url = `${this.baseUrl}/${this.controller}`;
+
+    return this.http.put<Simulator>(url, simulator).pipe(
+      catchError((error) => {
+        console.error('An error occurred:', error);
+        throw error;
+      })
+    );
   }
 }

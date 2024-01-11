@@ -72,7 +72,7 @@ fdescribe('EditSimulatorComponent', () => {
   it('should call simulator service when simulator updated', () => {
     const simulator = new Simulator({ id: routeId,  name: 'John Doe', email: ''});
 
-    spyOn(simulatorService, 'updateSimulator').and.returnValue(of(undefined));
+    spyOn(simulatorService, 'updateSimulator').and.returnValue(of(simulator));
     spyOn(console, 'log');
 
     const simulatorForm = ngMocks.find<SimulatorFormComponent>(SimulatorFormComponent).componentInstance;

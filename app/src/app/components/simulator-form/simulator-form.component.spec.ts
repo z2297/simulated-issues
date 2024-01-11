@@ -23,11 +23,20 @@ fdescribe('SimulatorFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should not show form while loading', () => {
+    component.isLoading = true;
+    fixture.detectChanges();
+
+    const form = fixture.debugElement.query(By.css('form'));
+
+    expect(form).toBeNull();
+  });
+
   it('should load data onInit', () => {
     const simulator = new Simulator({id: '123-321', name: 'test', email: 'a@a', address: '123 abc st'});
     component.simulator = simulator;
 
-    component.ngOnInit();
+    component.ngOnChanges();
     fixture.detectChanges();
 
     expect(component.simulatorForm.controls['name'].value).toEqual(simulator.name);
@@ -39,7 +48,7 @@ fdescribe('SimulatorFormComponent', () => {
     const simulator = new Simulator({id: '', name: '', email: '', address: ''});
     component.simulator = simulator;
 
-    component.ngOnInit();
+    component.ngOnChanges();
     fixture.detectChanges();
 
     const button = fixture.debugElement.query(By.css('#submit-button')).nativeElement;
@@ -52,7 +61,7 @@ fdescribe('SimulatorFormComponent', () => {
     const simulator = new Simulator({id: '', name: 'test', email: 'a@a', address: '123 abc st'});
     component.simulator = simulator;
 
-    component.ngOnInit();
+    component.ngOnChanges();
     fixture.detectChanges();
 
     const button = fixture.debugElement.query(By.css('#submit-button')).nativeElement;
@@ -66,7 +75,7 @@ fdescribe('SimulatorFormComponent', () => {
     const simulator = new Simulator({id: '', name: 'test', email: 'a@a', address: '123 abc st'});
     component.simulator = simulator;
 
-    component.ngOnInit();
+    component.ngOnChanges();
     fixture.detectChanges();
 
     spyOn(component.simulatorSaved, 'emit');
@@ -82,7 +91,7 @@ fdescribe('SimulatorFormComponent', () => {
       const simulator = new Simulator({id: '', name: '', email: '', address: ''});
       component.simulator = simulator;
 
-      component.ngOnInit();
+      component.ngOnChanges();
       fixture.detectChanges();
 
       spyOn(component.simulatorSaved, 'emit');
@@ -96,7 +105,7 @@ fdescribe('SimulatorFormComponent', () => {
     const simulator = new Simulator({id: '', name: 'test', email: 'a@a'});
     component.simulator = simulator;
 
-    component.ngOnInit();
+    component.ngOnChanges();
     fixture.detectChanges();
 
     const address = component.simulatorForm.controls['address'];

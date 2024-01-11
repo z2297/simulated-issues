@@ -41,7 +41,7 @@ fdescribe('CreateSimulatorComponent', () => {
     const simulator = new Simulator({ name: 'John Doe', email: ''});
 
     spyOn(console, 'log');
-    spyOn(simulatorService, 'createSimulator').and.returnValue(of(undefined));
+    spyOn(simulatorService, 'createSimulator').and.returnValue(of(simulator));
 
     const form = ngMocks.find<SimulatorFormComponent>(SimulatorFormComponent).componentInstance;
     form.simulatorSaved.emit(simulator);

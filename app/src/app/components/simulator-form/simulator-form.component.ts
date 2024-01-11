@@ -10,16 +10,21 @@ import { Simulator } from '../../models/simulator.model';
   templateUrl: './simulator-form.component.html',
   styleUrl: './simulator-form.component.scss'
 })
-export class SimulatorFormComponent implements OnInit {
-  @Input() simulator!: Simulator;
+export class SimulatorFormComponent implements OnChanges {
+  @Input() simulator?: Simulator;
   @Output() simulatorSaved: EventEmitter<Simulator> = new EventEmitter<Simulator>();
+
+  isLoading: boolean = true;
 
   simulatorForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
-  ngOnInit(): void {
-    this.createForm();
-    this.setForm();
+  ngOnChanges(): void {
+    if(this.simulator) {
+      this.createForm();
+      this.setForm();
+      this.isLoading = false;
+    }
   }
 
   addressValidator(control: AbstractControl): { [key: string]: boolean } | null {
@@ -48,15 +53,15 @@ export class SimulatorFormComponent implements OnInit {
   }
 
   setForm(): void {
-    this.simulatorForm.controls['address'].setValue(this.simulator.address);
-    this.simulatorForm.controls['email'].setValue(this.simulator.email);
-    this.simulatorForm.controls['name'].setValue(this.simulator.name);
+    this.simulatorForm.controls['address'].setValue(this.simulator!.address);
+    this.simulatorForm.controls['email'].setValue(this.simulator!.email);
+    this.simulatorForm.controls['name'].setValue(this.simulator!.name);
   }
 
   setModel(): void {
-    this.simulator.address = this.simulatorForm.controls['address'].value;
-    this.simulator.email = this.simulatorForm.controls['email'].value;
-    this.simulator.name = this.simulatorForm.controls['name'].value;
+    this.simulator!.address = this.simulatorForm.controls['address'].value;
+    this.simulator!.email = this.simulatorForm.controls['email'].value;
+    this.simulator!.name = this.simulatorForm.controls['name'].value;
   }
 
   onSubmit(): void {

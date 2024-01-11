@@ -1,0 +1,6 @@
+@AngularSpikeAPI_HostAddress = http://localhost:5209
+
+GET {{AngularSpikeAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
