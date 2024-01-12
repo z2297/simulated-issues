@@ -1,20 +1,20 @@
-<div *ngIf="!isLoading">
+<div *ngIf="!isLoading" class="form-contianer">
   <form [formGroup]="simulatorForm" (ngSubmit)="onSubmit()">
       <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" formControlName="name" />
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" class="form-input" formControlName="name" />
       </div>
 
       <div>
-        <label for="email">Email:</label>
-        <input type="text" id="email" formControlName="email" />
+        <label for="email" class="form-label">Email:</label>
+        <input type="text" id="email" class="form-input" formControlName="email" />
       </div>
 
       <div>
-          <label for="address">Address:</label>
-          <input type="text" id="address" formControlName="address" />
-        </div>
+          <label for="address" class="form-label">Address:</label>
+          <input type="text" id="address" class="form-input" formControlName="address" />
+      </div>
 
-      <button type="submit" id="submit-button" [disabled]="simulatorForm.invalid">Submit</button>
+      <button type="submit" id="submit-button" class="form-submit" [disabled]="simulatorForm.invalid">Submit</button>
   </form>
 </div>
