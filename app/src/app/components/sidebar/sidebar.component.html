@@ -1,12 +1,13 @@
-<div class="sidebar" [ngClass]="{'collapsed': isCollapsed}">
-  <ng-container *ngFor="let section of navigationSections">
-    <div class="section" id="section-{{section.id}}" (click)="toggleSection(section.id)">
-      <h3>{{ section.name }}</h3>
-      <ul [ngClass]="{'hidden': !section.isExpanded}" id="navigation-property-list">
-        <li *ngFor="let navigationProperty of section.navigationProperties" (click)="navigate(navigationProperty.route)" class="navigation-property">
-          {{ navigationProperty.name }}
-        </li>
-      </ul>
-    </div>
-  </ng-container>
+<div class="sidebar">
+  <div class="section" id="section-1">
+    <h3>Simulators</h3>
+    <ul id="navigation-property-list">
+      <li [routerLink]="['create-simulator']" class="navigation-property-1">
+        Create Simulator
+      </li>
+      <li [routerLink]="['all-simulators']" class="navigation-property-2">
+        All Simulators
+      </li>
+    </ul>
+  </div>
 </div>
