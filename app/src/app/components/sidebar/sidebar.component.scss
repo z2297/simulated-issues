@@ -1,35 +1,108 @@
 /* src/app/sidebar/sidebar.component.css */
 
 .sidebar {
-    width: 200px;
+    width: 170px;
     height: 100vh;
-    background-color: #333;
-    color: white;
-    padding: 10px;
+    background-color: #e2dec8;
     transition: width 0.3s;
-  }
+    position: absolute;
+    top: 0;
+    overflow: hidden;
 
-  .collapsed {
-    width: 50px;
-  }
 
-  .section {
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
+    .search-section {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-  .section-title {
-    font-weight: bold;
-  }
+      .dropdown {
+        select {
+          width: 155px;
+        }
+      }
 
-  .submenu {
-    margin-left: 15px;
-  }
+      .search-field {
+        display: flex;
+        margin-top: 3px;
 
-  .submenu-item {
-    margin-bottom: 5px;
-  }
+        input {
+          width: 122px;
+          margin-right: 4px;
+        }
 
-  .hidden {
-    display: none;
-  }
+        button {
+          font-size: 8pt;
+          height: 21px;
+          width: 25px;
+        }
+      }
+
+      a {
+        margin-top: 2px;
+        font-size: 8pt;
+      }
+
+      hr {
+        width: 90%;
+        display: block;
+        unicode-bidi: isolate;
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+        overflow: hidden;
+        border-style: inset;
+        border-width: 1px;
+      }
+    }
+
+    .navigation-section {
+      width: 100%;
+      .section-header {
+        display: flex;
+        align-items: center;
+
+        span {
+          cursor: pointer;
+          border: none;
+          color: #1a3b8d;
+          text-align: left;
+          margin: 0 0 0 0;
+          font-size: x-small;
+          font-weight: bold;
+        }
+        span:hover {
+          color: red !important;
+        }
+      }
+    }
+
+  
+}
+
+
+  // .collapsed {
+  //   width: 50px;
+  // }
+
+  // .section {
+  //   cursor: pointer;
+  //   margin-bottom: 10px;
+  // }
+
+  // .section-title {
+  //   font-weight: bold;
+  // }
+
+  // .submenu {
+  //   margin-left: 15px;
+  // }
+
+  // .submenu-item {
+  //   margin-bottom: 5px;
+  // }
+
+  // .hidden {
+  //   display: none;
+  // }
