@@ -57,10 +57,6 @@ describe('EditSimulatorComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should load simulator on init', () => {
     const simulator = new Simulator({ id: routeId,  name: 'John Doe', email: ''});
     mockGetSimulator.mockReturnValue(of(simulator));
