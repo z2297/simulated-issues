@@ -19,7 +19,7 @@ describe('SidebarServiceService', () => {
       providers: [SidebarService]
     });
 
-    spyOn(console, 'error');
+    jest.spyOn(console, 'error').mockImplementation();
 
     environment.apiUrl = 'http://localhost:3000';
     baseUrl = `${environment.apiUrl}/${controller}`;
