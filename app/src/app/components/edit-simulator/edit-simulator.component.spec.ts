@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditSimulatorComponent } from './edit-simulator.component';
-import { ActivatedRoute, Params, convertToParamMap } from '@angular/router';
+import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { MockComponent, MockProvider, ngMocks } from 'ng-mocks';
 import { SimulatorService } from '../../services/simulator-service.service';
 import { of, throwError } from 'rxjs';
@@ -45,7 +45,7 @@ describe('EditSimulatorComponent', () => {
   });
 
   it('should load simulator on init', () => {
-    const simulator = new Simulator({ id: routeId,  name: 'John Doe', email: ''});
+    const simulator = new Simulator({ id: routeId,  name: 'John Doe', });
 
     spyOn(simulatorService, 'getSimulator').and.returnValue(of(simulator));
 
@@ -70,7 +70,7 @@ describe('EditSimulatorComponent', () => {
   });
 
   it('should call simulator service when simulator updated', () => {
-    const simulator = new Simulator({ id: routeId,  name: 'John Doe', email: ''});
+    const simulator = new Simulator({ id: routeId,  name: 'John Doe'});
 
     spyOn(simulatorService, 'updateSimulator').and.returnValue(of(simulator));
     spyOn(console, 'log');
@@ -83,7 +83,7 @@ describe('EditSimulatorComponent', () => {
   });
 
   it('should console error when simulator service fails', () => {
-    const simulator = new Simulator({ id: routeId,  name: 'John Doe', email: ''});
+    const simulator = new Simulator({ id: routeId,  name: 'John Doe'});
 
     spyOn(simulatorService, 'updateSimulator').and.returnValue(throwError(() => 'test error'));
     spyOn(console, 'error');

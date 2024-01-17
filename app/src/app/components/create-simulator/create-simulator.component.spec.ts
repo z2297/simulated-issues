@@ -38,7 +38,7 @@ describe('CreateSimulatorComponent', () => {
   });
 
   it('should call the simulator service when creating a simulator', () => {
-    const simulator = new Simulator({ name: 'John Doe', email: ''});
+    const simulator = new Simulator({ name: 'John Doe'});
 
     spyOn(console, 'log');
     spyOn(simulatorService, 'createSimulator').and.returnValue(of(simulator));
@@ -51,7 +51,7 @@ describe('CreateSimulatorComponent', () => {
   });
 
   it('should log an error when the simulator service fails', () => {
-    const simulator = new Simulator({ name: 'John Doe', email: ''});
+    const simulator = new Simulator({ name: 'John Doe'});
 
     spyOn(console, 'error');
     spyOn(simulatorService, 'createSimulator').and.returnValue(throwError(() => 'test error'));

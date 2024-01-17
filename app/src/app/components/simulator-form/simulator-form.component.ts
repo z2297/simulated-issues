@@ -27,28 +27,9 @@ export class SimulatorFormComponent implements OnChanges {
     }
   }
 
-  addressValidator(control: AbstractControl): { [key: string]: boolean } | null {
-    const value: string = control.value;
-
-    if (!value) {
-      return null;
-    }
-
-    const numbers = value.match(/\d/g);
-    const spaces = value.match(/\s\w/g);
-
-    if (numbers!.length >= 2 && spaces!.length >= 2) {
-      return null;
-    } else {
-      return { 'validAddress': true };
-    }
-  }
-
   createForm(): void {
     this.simulatorForm = this.formBuilder.group({
       name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      address: ['', [this.addressValidator]],
     });
   }
 

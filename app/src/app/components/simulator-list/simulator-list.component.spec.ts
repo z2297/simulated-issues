@@ -34,7 +34,7 @@ describe('SimulatorListComponent', () => {
   });
 
   it('should load data onInit', () => {
-    const simulator = new Simulator({id: '123-321', name: 'test', email: 'a@a', address: '123 abc st'});
+    const simulator = new Simulator({id: '123-321', name: 'test', });
 
     spyOn(simulatorService, 'getAllSimulators').and.returnValue(of([simulator]));
 
@@ -46,7 +46,7 @@ describe('SimulatorListComponent', () => {
   });
 
   it('should navigate when row clicked on', () => {
-    const simulator = new Simulator({id: '123-321', name: 'test', email: 'a@a', address: '123 abc st'});
+    const simulator = new Simulator({id: '123-321', name: 'test', });
 
     spyOn(simulatorService, 'getAllSimulators').and.returnValue(of([simulator]));
     spyOn(router, 'navigate');

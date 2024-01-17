@@ -33,19 +33,17 @@ describe('SimulatorFormComponent', () => {
   });
 
   it('should load data onInit', () => {
-    const simulator = new Simulator({id: '123-321', name: 'test', email: 'a@a', address: '123 abc st'});
+    const simulator = new Simulator({id: '123-321', name: 'test'});
     component.simulator = simulator;
 
     component.ngOnChanges();
     fixture.detectChanges();
 
     expect(component.simulatorForm.controls['name'].value).toEqual(simulator.name);
-    expect(component.simulatorForm.controls['email'].value).toEqual(simulator.email);
-    expect(component.simulatorForm.controls['address'].value).toEqual(simulator.address);
   });
 
   it('should initialize with submit disabled', () => {
-    const simulator = new Simulator({id: '', name: '', email: '', address: ''});
+    const simulator = new Simulator({id: '', name: '', });
     component.simulator = simulator;
 
     component.ngOnChanges();
@@ -58,7 +56,7 @@ describe('SimulatorFormComponent', () => {
   });
 
   it('should enable submit when form is valid', () => {
-    const simulator = new Simulator({id: '', name: 'test', email: 'a@a', address: '123 abc st'});
+    const simulator = new Simulator({id: '', name: 'test', });
     component.simulator = simulator;
 
     component.ngOnChanges();
@@ -72,7 +70,7 @@ describe('SimulatorFormComponent', () => {
 
   it('should emit simulatorCreated when form is submitted', () => {
 
-    const simulator = new Simulator({id: '', name: 'test', email: 'a@a', address: '123 abc st'});
+    const simulator = new Simulator({id: '', name: 'test', });
     component.simulator = simulator;
 
     component.ngOnChanges();
@@ -88,7 +86,7 @@ describe('SimulatorFormComponent', () => {
 
   it('should not emit simulatorCreated when form is invalid', () => {
 
-      const simulator = new Simulator({id: '', name: '', email: '', address: ''});
+      const simulator = new Simulator({id: '', name: '', });
       component.simulator = simulator;
 
       component.ngOnChanges();
@@ -100,23 +98,4 @@ describe('SimulatorFormComponent', () => {
 
       expect(component.simulatorSaved.emit).not.toHaveBeenCalled();
   });
-
-  it('should validate address', () => {
-    const simulator = new Simulator({id: '', name: 'test', email: 'a@a'});
-    component.simulator = simulator;
-
-    component.ngOnChanges();
-    fixture.detectChanges();
-
-    const address = component.simulatorForm.controls['address'];
-
-    expect(address.errors).toBeNull();
-
-    address.setValue('123 abc');
-    expect(address.errors).toEqual({validAddress: true});
-
-    address.setValue('123 abc st');
-    expect(address.errors).toBeNull();
-  });
-
 });

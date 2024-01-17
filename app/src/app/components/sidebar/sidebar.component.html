@@ -14,12 +14,12 @@
   </div>
   <div class="navigation-container">
     <div class="navigation-section">
-      <div class="section-header" (click)="expandNavigationSection('Issues')">
+      <div class="section-header" id="issue-navigation" (click)="expandNavigationSection('Issues')">
         <img ngSrc="assets/plus.gif" height="18" width="18" alt="">
         <span>Issues</span>
       </div>
 
-      <div [ngClass]="{'hidden': !isExpanded('Issues')}" class="navigation-property-list">
+      <div [ngClass]="{'hidden': !isExpanded('Issues')}" class="navigation-property-list" id="issue-navigation-list">
         <span class="navigation-property">Issues Main</span>
         <span class="navigation-property">Create New</span>
         <span class="navigation-property">Edit Issue</span>
@@ -30,13 +30,13 @@
       </div>
     </div>
 
-    <div class="navigation-section" (click)="expandNavigationSection('Simulators')">
+    <div class="navigation-section" (click)="expandNavigationSection('Simulators')" id="simulator-navigation">
       <div class="section-header">
         <img ngSrc="assets/plus.gif" height="18" width="18" alt="">
         <span>Simulators</span>
       </div>
 
-      <div [ngClass]="{'hidden': !isExpanded('Simulators')}" class="navigation-property-list">
+      <div [ngClass]="{'hidden': !isExpanded('Simulators')}" class="navigation-property-list" id="simulator-navigation-list">
         <span class="navigation-property">Sim Main</span>
         <span class="navigation-property">Simulator Search</span>
         <span class="navigation-property">Configuration Search</span>
@@ -56,25 +56,25 @@
     <div class="navigation-section">
       <span class="navigation-item">Admin</span>
     </div>
-    <div class="navigation-section" (click)="expandNavigationSection('Contacts')">
+    <div class="navigation-section" (click)="expandNavigationSection('Contacts')" id="contacts-navigation">
       <div class="section-header">
         <img ngSrc="assets/plus.gif" height="18" width="18" alt="">
         <span>Contacts</span>
       </div>
 
-      <div [ngClass]="{'hidden': !isExpanded('Contacts')}" class="navigation-property-list">
+      <div [ngClass]="{'hidden': !isExpanded('Contacts')}" class="navigation-property-list" id="contacts-navigation-list">
         <span class="navigation-property">Contacts Main</span>
         <span class="navigation-property">Search Contacts</span>
         <span class="navigation-property">Preferences</span>
       </div>
     </div>
-    <div class="navigation-section" (click)="expandNavigationSection('Permissions')">
+    <div class="navigation-section" (click)="expandNavigationSection('Permissions')" id="permissions-navigation">
       <div class="section-header">
         <img ngSrc="assets/plus.gif" height="18" width="18" alt="">
         <span>Permissions</span>
       </div>
 
-      <div [ngClass]="{'hidden': !isExpanded('Permissions')}" class="navigation-property-list">
+      <div [ngClass]="{'hidden': !isExpanded('Permissions')}" class="navigation-property-list" id="permissions-navigation-list">
         <span class="navigation-property">Permissions Main</span>
         <span class="navigation-property">Define Role Heirarchy</span>
         <span class="navigation-property">View Roles</span>
@@ -84,13 +84,13 @@
     <div class="navigation-section">
       <span class="navigation-item">User Imulator</span>
     </div>
-    <div class="navigation-section" (click)="expandNavigationSection('Comments')">
+    <div class="navigation-section" (click)="expandNavigationSection('Comments')" id="comments-navigation">
       <div class="section-header">
         <img ngSrc="assets/plus.gif" height="18" width="18" alt="">
         <span>Comments</span>
       </div>
 
-      <div [ngClass]="{'hidden': !isExpanded('Comments')}" class="navigation-property-list">
+      <div [ngClass]="{'hidden': !isExpanded('Comments')}" class="navigation-property-list" id="comments-navigation-list">
         <span class="navigation-property">Discussion Area</span>
         <span class="navigation-property">Comments (Archive)</span>
       </div>
@@ -98,13 +98,13 @@
     <div class="navigation-section">
       <span class="navigation-item">Job/Item Number XRef</span>
     </div>
-    <div class="navigation-section" (click)="expandNavigationSection('Documentation')">
+    <div class="navigation-section" (click)="expandNavigationSection('Documentation')" id="documentation-navigation">
       <div class="section-header">
         <img ngSrc="assets/plus.gif" height="18" width="18" alt="">
         <span>Documentation</span>
       </div>
 
-      <div [ngClass]="{'hidden': !isExpanded('Documentation')}" class="navigation-property-list">
+      <div [ngClass]="{'hidden': !isExpanded('Documentation')}" class="navigation-property-list" id="documentation-navigation-list">
         <span class="navigation-property">Instructions</span>
         <span class="navigation-property">Release Notes</span>
       </div>
