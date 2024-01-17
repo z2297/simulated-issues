@@ -5,7 +5,6 @@ import { environment } from '../environments/environment';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NavigationSection } from '../models/navigation-section.model';
 
-
 describe('SidebarServiceService', () => {
   let service: SidebarService;
 
@@ -56,7 +55,6 @@ describe('SidebarServiceService', () => {
   });
 
   it('get should throw error', (done: DoneFn) => {
-    const navigation = [{ id: '1', name: 'test' }];
     const url = `${baseUrl}`;
 
     service.getSidebarNavigation().subscribe({

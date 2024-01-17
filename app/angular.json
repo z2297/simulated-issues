@@ -96,8 +96,32 @@
             ],
             "scripts": []
           }
+        },
+        "test-new": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": ["scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "configPath": "./jest.config.ts"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "337c8079-c31c-4dfd-a140-655869447683"
   }
 }
