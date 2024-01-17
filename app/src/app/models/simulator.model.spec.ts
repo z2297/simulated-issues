@@ -9,8 +9,6 @@ describe('Simulator', () => {
         let simulator = new Simulator({
             id: '1',
             name: 'test',
-            email: 'test',
-            address: 'test'
         });
         expect(simulator.id).toEqual('1');
         expect(simulator.name).toEqual('test');

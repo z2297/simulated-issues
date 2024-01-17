@@ -53,14 +53,10 @@ export class SimulatorFormComponent implements OnChanges {
   }
 
   setForm(): void {
-    this.simulatorForm.controls['address'].setValue(this.simulator!.address);
-    this.simulatorForm.controls['email'].setValue(this.simulator!.email);
     this.simulatorForm.controls['name'].setValue(this.simulator!.name);
   }
 
   setModel(): void {
-    this.simulator!.address = this.simulatorForm.controls['address'].value;
-    this.simulator!.email = this.simulatorForm.controls['email'].value;
     this.simulator!.name = this.simulatorForm.controls['name'].value;
   }
 
