@@ -6,7 +6,7 @@
         <thead>
             <tr>
                 <th>Simulator</th>
-                <th>Lopcation</th>
+                <th>Location</th>
                 <th>Destination</th>
                 <th>Lead Center</th>
                 <th>Job No.</th>
@@ -19,10 +19,16 @@
         </thead>
         <tbody>
             <tr *ngFor="let simulator of simulators" (click)="editSimulator(simulator.id!)" id="simulator-row">
-                <td>{{ simulator.id }}</td>
                 <td>{{ simulator.name }}</td>
-                <td>{{ simulator.email }}</td>
-                <td>{{ simulator.address }}</td>
+                <td>{{ simulator.location }}</td>
+                <td>{{ simulator.destination }}</td>
+                <td>{{ simulator.leadCenter }}</td>
+                <td>{{ simulator.jobNumber }}</td>
+                <td>{{ simulator.status }}</td>
+                <td>{{ simulator.type }}</td>
+                <td>{{ simulator.corporateId }}</td>
+                <td>{{ simulator.shipDate }}</td>
+                <td>{{ simulator.aircraftType }}</td>
             </tr>
         </tbody>
     </table>

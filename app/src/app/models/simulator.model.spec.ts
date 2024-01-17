@@ -14,7 +14,5 @@ describe('Simulator', () => {
         });
         expect(simulator.id).toEqual('1');
         expect(simulator.name).toEqual('test');
-        expect(simulator.email).toEqual('test');
-        expect(simulator.address).toEqual('test');
     });
 });
