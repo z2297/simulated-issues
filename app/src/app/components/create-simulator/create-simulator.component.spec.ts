@@ -23,7 +23,6 @@ describe('CreateSimulatorComponent', () => {
 
     simulatorService = TestBed.inject(SimulatorService);
 
-
     fixture = TestBed.createComponent(CreateSimulatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -40,8 +39,8 @@ describe('CreateSimulatorComponent', () => {
   it('should call the simulator service when creating a simulator', () => {
     const simulator = new Simulator({ name: 'John Doe', email: ''});
 
-    spyOn(console, 'log');
-    spyOn(simulatorService, 'createSimulator').and.returnValue(of(simulator));
+    jest.spyOn(console, 'log').mockImplementation();
+    jest.spyOn(simulatorService, 'createSimulator').mockReturnValue(of(simulator));
 
     const form = ngMocks.find<SimulatorFormComponent>(SimulatorFormComponent).componentInstance;
     form.simulatorSaved.emit(simulator);
@@ -53,8 +52,8 @@ describe('CreateSimulatorComponent', () => {
   it('should log an error when the simulator service fails', () => {
     const simulator = new Simulator({ name: 'John Doe', email: ''});
 
-    spyOn(console, 'error');
-    spyOn(simulatorService, 'createSimulator').and.returnValue(throwError(() => 'test error'));
+    jest.spyOn(console, 'error').mockImplementation();
+    jest.spyOn(simulatorService, 'createSimulator').mockReturnValue(throwError(() => 'test error'));
 
     const form = ngMocks.find<SimulatorFormComponent>(SimulatorFormComponent).componentInstance;
     form.simulatorSaved.emit(simulator);

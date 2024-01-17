@@ -19,7 +19,7 @@ describe('SimulatorServiceService', () => {
       providers: [SimulatorService]
     });
 
-    spyOn(console, 'error');
+    jest.spyOn(console, 'error').mockImplementation();
 
     environment.apiUrl = 'http://localhost:3000';
     baseUrl = `${environment.apiUrl}/${controller}`;
@@ -36,7 +36,7 @@ describe('SimulatorServiceService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('get should return simulator', (done: DoneFn) => {
+  it('get should return simulator', (done: jest.DoneCallback) => {
     const simulator = new Simulator({ id: '1', name: 'test' });
     const url = `${baseUrl}/${simulator.id}`;
 
@@ -55,7 +55,7 @@ describe('SimulatorServiceService', () => {
     req.flush(simulator);
   });
 
-  it('get should throw error', (done: DoneFn) => {
+  it('get should throw error', (done: jest.DoneCallback) => {
     const simulator = new Simulator({ id: '1', name: 'test' });
     const url = `${baseUrl}/${simulator.id}`;
 
@@ -80,7 +80,7 @@ describe('SimulatorServiceService', () => {
     );
   });
 
-  it('getAll should return simulators', (done: DoneFn) => {
+  it('getAll should return simulators', (done: jest.DoneCallback) => {
     const simulators = [
       new Simulator({ id: '1', name: 'test' }),
       new Simulator({ id: '2', name: 'test' }),
@@ -102,7 +102,7 @@ describe('SimulatorServiceService', () => {
     req.flush(simulators);
   });
 
-  it('getAll should throw error', (done: DoneFn) => {
+  it('getAll should throw error', (done: jest.DoneCallback) => {
     const simulators = [
       new Simulator({ id: '1', name: 'test' }),
       new Simulator({ id: '2', name: 'test' }),
@@ -130,7 +130,7 @@ describe('SimulatorServiceService', () => {
     );
   });
 
-  it('create should return simulator', (done: DoneFn) => {
+  it('create should return simulator', (done: jest.DoneCallback) => {
     const simulator = new Simulator({ id: '1', name: 'test' });
     const url = `${baseUrl}`;
 
@@ -149,7 +149,7 @@ describe('SimulatorServiceService', () => {
     req.flush(simulator);
   });
 
-  it('create should throw error', (done: DoneFn) => {
+  it('create should throw error', (done: jest.DoneCallback) => {
     const simulator = new Simulator({ id: '1', name: 'test' });
     const url = `${baseUrl}`;
 
@@ -174,7 +174,7 @@ describe('SimulatorServiceService', () => {
     );
   });
 
-  it('update should return simulator', (done: DoneFn) => {
+  it('update should return simulator', (done: jest.DoneCallback) => {
     const simulator = new Simulator({ id: '1', name: 'test' });
     const url = `${baseUrl}`;
 
@@ -193,7 +193,7 @@ describe('SimulatorServiceService', () => {
     req.flush(simulator);
   });
 
-  it('update should throw error', (done: DoneFn) => {
+  it('update should throw error', (done: jest.DoneCallback) => {
     const simulator = new Simulator({ id: '1', name: 'test' });
     const url = `${baseUrl}`;
 

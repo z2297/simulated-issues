@@ -78,7 +78,7 @@ describe('SimulatorFormComponent', () => {
     component.ngOnChanges();
     fixture.detectChanges();
 
-    spyOn(component.simulatorSaved, 'emit');
+    jest.spyOn(component.simulatorSaved, 'emit').mockImplementation();
 
     const button = fixture.debugElement.query(By.css('#submit-button')).nativeElement;
     button.click();
@@ -94,7 +94,7 @@ describe('SimulatorFormComponent', () => {
       component.ngOnChanges();
       fixture.detectChanges();
 
-      spyOn(component.simulatorSaved, 'emit');
+      jest.spyOn(component.simulatorSaved, 'emit').mockImplementation();
 
       component.onSubmit();
 

@@ -5,7 +5,6 @@ import { environment } from '../environments/environment';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NavigationSection } from '../models/navigation-section.model';
 
-
 describe('SidebarServiceService', () => {
   let service: SidebarService;
 
@@ -19,7 +18,7 @@ describe('SidebarServiceService', () => {
       providers: [SidebarService]
     });
 
-    spyOn(console, 'error');
+    jest.spyOn(console, 'error').mockImplementation();
 
     environment.apiUrl = 'http://localhost:3000';
     baseUrl = `${environment.apiUrl}/${controller}`;
@@ -36,7 +35,7 @@ describe('SidebarServiceService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('get should return navigation', (done: DoneFn) => {
+  it('get should return navigation', (done: jest.DoneCallback) => {
     const navigation = [new NavigationSection({ id: 1, name: 'test' })];
     const url = `${baseUrl}`;
 
@@ -55,8 +54,7 @@ describe('SidebarServiceService', () => {
     req.flush(navigation);
   });
 
-  it('get should throw error', (done: DoneFn) => {
-    const navigation = [{ id: '1', name: 'test' }];
+  it('get should throw error', (done: jest.DoneCallback) => {
     const url = `${baseUrl}`;
 
     service.getSidebarNavigation().subscribe({

@@ -36,7 +36,7 @@ describe('SimulatorListComponent', () => {
   it('should load data onInit', () => {
     const simulator = new Simulator({id: '123-321', name: 'test', email: 'a@a', address: '123 abc st'});
 
-    spyOn(simulatorService, 'getAllSimulators').and.returnValue(of([simulator]));
+    jest.spyOn(simulatorService, 'getAllSimulators').mockReturnValue(of([simulator]));
 
     component.ngOnInit();
     fixture.detectChanges();
@@ -48,8 +48,8 @@ describe('SimulatorListComponent', () => {
   it('should navigate when row clicked on', () => {
     const simulator = new Simulator({id: '123-321', name: 'test', email: 'a@a', address: '123 abc st'});
 
-    spyOn(simulatorService, 'getAllSimulators').and.returnValue(of([simulator]));
-    spyOn(router, 'navigate');
+    jest.spyOn(simulatorService, 'getAllSimulators').mockReturnValue(of([simulator]));
+    jest.spyOn(router, 'navigate');
 
     component.ngOnInit();
     fixture.detectChanges();
@@ -61,8 +61,8 @@ describe('SimulatorListComponent', () => {
   });
 
   it('should error when getAllSimulators fails', () => {
-    spyOn(console, 'error').and.callFake(() => {});
-    spyOn(simulatorService, 'getAllSimulators').and.returnValue(throwError(() => 'error'));
+    jest.spyOn(console, 'error').mockImplementation();
+    jest.spyOn(simulatorService, 'getAllSimulators').mockReturnValue(throwError(() => 'error'));
 
     component.ngOnInit();
     fixture.detectChanges();
