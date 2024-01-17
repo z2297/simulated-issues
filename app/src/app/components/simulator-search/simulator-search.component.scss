@@ -1,4 +1,17 @@
-.simulator-search-container {
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+
+    button {
+        height: 24px;
+    }
+}
+.spacer {
+    width: 50px;
+}
+.simulator-search {
     height: 550px;
 
     background: #dcdcdc;
@@ -27,7 +40,7 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        
+
         .search-item {
             display: flex;
             flex-direction: column;

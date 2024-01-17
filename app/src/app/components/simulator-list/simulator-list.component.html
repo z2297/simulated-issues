@@ -1,19 +1,29 @@
-<table>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Address</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let simulator of simulators" (click)="editSimulator(simulator.id!)" id="simulator-row">
-            <td>{{ simulator.id }}</td>
-            <td>{{ simulator.name }}</td>
-            <td>{{ simulator.email }}</td>
-            <td>{{ simulator.address }}</td>
-        </tr>
-    </tbody>
-</table>
-
+<div class="list-container">
+    <div class="table-banner">
+        <span>xx simulators found</span>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Simulator</th>
+                <th>Lopcation</th>
+                <th>Destination</th>
+                <th>Lead Center</th>
+                <th>Job No.</th>
+                <th>Status</th>
+                <th>Type</th>
+                <th>Corporate Id</th>
+                <th>Ship Date</th>
+                <th>Aircraft Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let simulator of simulators" (click)="editSimulator(simulator.id!)" id="simulator-row">
+                <td>{{ simulator.id }}</td>
+                <td>{{ simulator.name }}</td>
+                <td>{{ simulator.email }}</td>
+                <td>{{ simulator.address }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>    
