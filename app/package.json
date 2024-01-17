@@ -6,9 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "test:new:coverage": "ng run angular-spike:test-new --coverage",
-    "test:new": "ng run angular-spike:test-new --watch"
+    "test": "ng test --watch",
+    "test:coverage": "ng test --coverage",
+    "test:config": "jest --showConfig"
   },
   "private": true,
   "dependencies": {
@@ -34,17 +34,10 @@
     "@angular/cli": "^17.0.9",
     "@angular/compiler-cli": "^17.0.0",
     "@testing-library/angular": "^15.1.0",
-    "@types/jasmine": "~5.1.0",
     "@types/jest": "^29.5.11",
-    "jasmine-core": "~5.1.0",
     "jest": "^29.7.0",
     "jest-jasmine2": "^29.7.0",
     "jest-preset-angular": "^14.0.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.2.2"
   }

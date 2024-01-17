@@ -35,7 +35,7 @@ describe('SidebarServiceService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('get should return navigation', (done: DoneFn) => {
+  it('get should return navigation', (done: jest.DoneCallback) => {
     const navigation = [new NavigationSection({ id: 1, name: 'test' })];
     const url = `${baseUrl}`;
 
@@ -54,7 +54,7 @@ describe('SidebarServiceService', () => {
     req.flush(navigation);
   });
 
-  it('get should throw error', (done: DoneFn) => {
+  it('get should throw error', (done: jest.DoneCallback) => {
     const url = `${baseUrl}`;
 
     service.getSidebarNavigation().subscribe({

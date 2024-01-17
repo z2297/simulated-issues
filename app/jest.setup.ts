@@ -21,14 +21,15 @@ ngMocks.globalKeep(CommonModule, true);
 ngMocks.globalKeep(BrowserModule, true);
 
 // auto restore for jasmine and jest <27
+// JFPD: commented out as we're on jest 29 and it was throwing errors
 // declare const jasmine: any;
-import { MockInstance } from 'ng-mocks'; // eslint-disable-line import/order
-jasmine.getEnv().addReporter({
-  specDone: MockInstance.restore,
-  specStarted: MockInstance.remember,
-  suiteDone: MockInstance.restore,
-  suiteStarted: MockInstance.remember,
-});
+// import { MockInstance } from 'ng-mocks'; // eslint-disable-line import/order
+// jasmine.getEnv().addReporter({
+//   specDone: MockInstance.restore,
+//   specStarted: MockInstance.remember,
+//   suiteDone: MockInstance.restore,
+//   suiteStarted: MockInstance.remember,
+// });
 
 // // If you use jest v27+, please add to its config testRunner=jest-jasmine2 for now.
 // // If you don't want to rely on jasmine at all, then, please,
