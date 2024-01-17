@@ -6,9 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test --watch",
+    "test": "ng test --watch-all=true",
     "test:coverage": "ng test --coverage",
-    "test:config": "jest --showConfig"
+    "test:ci": "ng test",
+    "test:config": "ng test --show-config"
   },
   "private": true,
   "dependencies": {
