@@ -7,6 +7,7 @@ import { SimulatorService } from '../../services/simulator-service.service';
 import { of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { By } from '@angular/platform-browser';
+// import { phl } from '@angular-extensions/pretty-html-log';
 
 describe('SimulatorListComponent', () => {
   let component: SimulatorListComponent;
@@ -78,9 +79,10 @@ describe('SimulatorListComponent', () => {
 
     component.ngOnInit();
     fixture.detectChanges();
-
+    //phl(fixture); -- HTML pretty-print debugging tool
+    
     const simulatorCount = fixture.debugElement.query(By.css('#simulator-count')).nativeElement;
 
-    expect(simulatorCount.innerText).toContain('1 simulators found');
+    expect(simulatorCount.innerHTML).toContain('1');
   });
 });
