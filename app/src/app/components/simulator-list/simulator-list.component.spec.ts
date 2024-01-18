@@ -81,6 +81,6 @@ describe('SimulatorListComponent', () => {
 
     const simulatorCount = fixture.debugElement.query(By.css('#simulator-count')).nativeElement;
 
-    expect(simulatorCount.innerText).toContain('1');
+    expect(simulatorCount.innerText).toContain('1 simulators found');
   });
 });
