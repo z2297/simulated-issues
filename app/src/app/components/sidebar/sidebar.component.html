@@ -23,7 +23,7 @@
         <span class="navigation-property">Issues Main</span>
         <span class="navigation-property">Create New</span>
         <span class="navigation-property">Edit Issue</span>
-        <span class="navigation-property">Advanced Search</span>
+        <span class="navigation-property" [routerLink]="'simulator-search'">Advanced Search</span>
         <span class="navigation-property">Support Req. Search</span>
         <span class="navigation-property">VSS Info Search</span>
         <span class="navigation-property">Preferences</span>
@@ -37,7 +37,7 @@
       </div>
 
       <div [ngClass]="{'hidden': !isExpanded('Simulators')}" class="navigation-property-list" id="simulator-navigation-list">
-        <span class="navigation-property">Sim Main</span>
+        <span [routerLink]="'/'" class="navigation-property">Sim Main</span>
         <span class="navigation-property">Simulator Search</span>
         <span class="navigation-property">Configuration Search</span>
         <span class="navigation-property">Qualifications Search</span>
