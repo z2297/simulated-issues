@@ -2,11 +2,11 @@
 
 .sidebar {
     width: 170px;
-    height: 100vh;
+    height: calc(100vh - 60px);
     background-color: #e2dec8;
     transition: width 0.3s;
-    position: absolute;
-    top: 0;
+    // position: absolute;
+    top: 60px;
     overflow: hidden;
 
 

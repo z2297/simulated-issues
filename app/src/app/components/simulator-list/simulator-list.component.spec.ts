@@ -34,7 +34,7 @@ describe('SimulatorListComponent', () => {
   });
 
   it('should load data onInit', () => {
-    const simulator = new Simulator({id: '123-321', name: 'test', email: 'a@a', address: '123 abc st'});
+    const simulator = new Simulator({id: '123-321', name: 'test', });
 
     jest.spyOn(simulatorService, 'getAllSimulators').mockReturnValue(of([simulator]));
 
@@ -46,7 +46,7 @@ describe('SimulatorListComponent', () => {
   });
 
   it('should navigate when row clicked on', () => {
-    const simulator = new Simulator({id: '123-321', name: 'test', email: 'a@a', address: '123 abc st'});
+    const simulator = new Simulator({id: '123-321', name: 'test', });
 
     jest.spyOn(simulatorService, 'getAllSimulators').mockReturnValue(of([simulator]));
     jest.spyOn(router, 'navigate');
@@ -69,5 +69,18 @@ describe('SimulatorListComponent', () => {
 
     expect(component.simulators.length).toEqual(0);
     expect(console.error).toHaveBeenCalled();
+  });
+
+  it('should show number of simulators', () => {
+    const simulator = new Simulator({id: '123-321', name: 'test', });
+
+    spyOn(simulatorService, 'getAllSimulators').and.returnValue(of([simulator]));
+
+    component.ngOnInit();
+    fixture.detectChanges();
+
+    const simulatorCount = fixture.debugElement.query(By.css('#simulator-count')).nativeElement;
+
+    expect(simulatorCount.innerText).toContain('1');
   });
 });

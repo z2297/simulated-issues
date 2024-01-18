@@ -1,8 +1,6 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
-import { SidebarService } from '../../services/sidebar-service.service';
-import { NavigationSection } from '../../models/navigation-section.model';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',

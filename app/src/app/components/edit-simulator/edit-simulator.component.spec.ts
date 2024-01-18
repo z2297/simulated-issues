@@ -61,7 +61,7 @@ describe('EditSimulatorComponent', () => {
 
 
   it('should load simulator on init', () => {
-    const simulator = new Simulator({ id: routeId,  name: 'John Doe', email: ''});
+    const simulator = new Simulator({ id: routeId,  name: 'John Doe', });
     jest.spyOn(simulatorService, 'getSimulator').mockReturnValue(of(simulator));
     
     component.ngOnInit();
@@ -85,7 +85,7 @@ describe('EditSimulatorComponent', () => {
   });
 
   it('should call simulator service when simulator updated', () => {
-    const simulator = new Simulator({ id: routeId,  name: 'John Doe', email: ''});
+    const simulator = new Simulator({ id: routeId,  name: 'John Doe'});
     jest.spyOn(simulatorService, 'updateSimulator').mockReturnValue(of(simulator));
     jest.spyOn(console, 'log').mockImplementation();
 
@@ -97,7 +97,7 @@ describe('EditSimulatorComponent', () => {
   });
 
   it('should console error on update when simulator service fails', () => {
-    const simulator = new Simulator({ id: routeId,  name: 'John Doe', email: ''});
+    const simulator = new Simulator({ id: routeId,  name: 'John Doe'});
     jest.spyOn(simulatorService, 'updateSimulator').mockReturnValue(throwError(() => 'test error'));
     jest.spyOn(console, 'error').mockImplementation();
 

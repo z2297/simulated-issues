@@ -37,7 +37,7 @@ describe('CreateSimulatorComponent', () => {
   });
 
   it('should call the simulator service when creating a simulator', () => {
-    const simulator = new Simulator({ name: 'John Doe', email: ''});
+    const simulator = new Simulator({ name: 'John Doe'});
 
     jest.spyOn(console, 'log').mockImplementation();
     jest.spyOn(simulatorService, 'createSimulator').mockReturnValue(of(simulator));
@@ -50,7 +50,7 @@ describe('CreateSimulatorComponent', () => {
   });
 
   it('should log an error when the simulator service fails', () => {
-    const simulator = new Simulator({ name: 'John Doe', email: ''});
+    const simulator = new Simulator({ name: 'John Doe'});
 
     jest.spyOn(console, 'error').mockImplementation();
     jest.spyOn(simulatorService, 'createSimulator').mockReturnValue(throwError(() => 'test error'));
