@@ -28,7 +28,7 @@ describe('SimulatorSearchComponent', () => {
   });
 
   it('should navigate when button clicked', () => {
-    spyOn(router, 'navigate');
+    jest.spyOn(router, 'navigate').mockImplementation();
 
     const button = fixture.debugElement.query(By.css('#submit')).nativeElement;
     button.click();

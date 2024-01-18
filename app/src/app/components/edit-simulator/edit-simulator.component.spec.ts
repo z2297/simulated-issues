@@ -8,6 +8,21 @@ import { of, throwError } from 'rxjs';
 import { Simulator } from '../../models/simulator.model';
 import { SimulatorFormComponent } from '../simulator-form/simulator-form.component';
 
+// keeping this pattern around for a hot minute until we understand whether ngmocks 
+// will work with Angular Testing Library
+// const mockGetSimulator = jest.fn();
+// const mockUpdateSimulator = jest.fn();
+// jest.mock('../../services/simulator-service.service', () => {
+//   return {
+//     SimulatorService: jest.fn().mockImplementation(() => {
+//       return { 
+//         getSimulator: mockGetSimulator, 
+//         updateSimulator: mockUpdateSimulator
+//       };
+//     }),
+//   };
+// });
+
 describe('EditSimulatorComponent', () => {
   let component: EditSimulatorComponent;
   let fixture: ComponentFixture<EditSimulatorComponent>;
@@ -44,11 +59,11 @@ describe('EditSimulatorComponent', () => {
     expect(component).toBeTruthy();
   });
 
+
   it('should load simulator on init', () => {
     const simulator = new Simulator({ id: routeId,  name: 'John Doe', });
-
-    spyOn(simulatorService, 'getSimulator').and.returnValue(of(simulator));
-
+    jest.spyOn(simulatorService, 'getSimulator').mockReturnValue(of(simulator));
+    
     component.ngOnInit();
     fixture.detectChanges();
 
@@ -59,9 +74,9 @@ describe('EditSimulatorComponent', () => {
     expect(simulatorForm.simulator).toEqual(simulator);
   });
 
-  it('should console error when simulator service fails', () => {
-    spyOn(console, 'error');
-    spyOn(simulatorService, 'getSimulator').and.returnValue(throwError(() => 'test error'));
+  it('should console error on get when simulator service fails', () => {
+    jest.spyOn(simulatorService, 'getSimulator').mockReturnValue(throwError(() => 'test error'));
+    jest.spyOn(console, 'error').mockImplementation();
 
     component.ngOnInit();
     fixture.detectChanges();
@@ -71,9 +86,8 @@ describe('EditSimulatorComponent', () => {
 
   it('should call simulator service when simulator updated', () => {
     const simulator = new Simulator({ id: routeId,  name: 'John Doe'});
-
-    spyOn(simulatorService, 'updateSimulator').and.returnValue(of(simulator));
-    spyOn(console, 'log');
+    jest.spyOn(simulatorService, 'updateSimulator').mockReturnValue(of(simulator));
+    jest.spyOn(console, 'log').mockImplementation();
 
     const simulatorForm = ngMocks.find<SimulatorFormComponent>(SimulatorFormComponent).componentInstance;
     simulatorForm.simulatorSaved.emit(simulator);
@@ -82,11 +96,10 @@ describe('EditSimulatorComponent', () => {
     expect(console.log).toHaveBeenCalledWith('simulator updated');
   });
 
-  it('should console error when simulator service fails', () => {
+  it('should console error on update when simulator service fails', () => {
     const simulator = new Simulator({ id: routeId,  name: 'John Doe'});
-
-    spyOn(simulatorService, 'updateSimulator').and.returnValue(throwError(() => 'test error'));
-    spyOn(console, 'error');
+    jest.spyOn(simulatorService, 'updateSimulator').mockReturnValue(throwError(() => 'test error'));
+    jest.spyOn(console, 'error').mockImplementation();
 
     const simulatorForm = ngMocks.find<SimulatorFormComponent>(SimulatorFormComponent).componentInstance;
     simulatorForm.simulatorSaved.emit(simulator);

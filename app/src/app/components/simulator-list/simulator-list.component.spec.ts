@@ -7,6 +7,7 @@ import { SimulatorService } from '../../services/simulator-service.service';
 import { of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { By } from '@angular/platform-browser';
+// import { phl } from '@angular-extensions/pretty-html-log';
 
 describe('SimulatorListComponent', () => {
   let component: SimulatorListComponent;
@@ -36,7 +37,7 @@ describe('SimulatorListComponent', () => {
   it('should load data onInit', () => {
     const simulator = new Simulator({id: '123-321', name: 'test', });
 
-    spyOn(simulatorService, 'getAllSimulators').and.returnValue(of([simulator]));
+    jest.spyOn(simulatorService, 'getAllSimulators').mockReturnValue(of([simulator]));
 
     component.ngOnInit();
     fixture.detectChanges();
@@ -48,8 +49,8 @@ describe('SimulatorListComponent', () => {
   it('should navigate when row clicked on', () => {
     const simulator = new Simulator({id: '123-321', name: 'test', });
 
-    spyOn(simulatorService, 'getAllSimulators').and.returnValue(of([simulator]));
-    spyOn(router, 'navigate');
+    jest.spyOn(simulatorService, 'getAllSimulators').mockReturnValue(of([simulator]));
+    jest.spyOn(router, 'navigate');
 
     component.ngOnInit();
     fixture.detectChanges();
@@ -61,8 +62,8 @@ describe('SimulatorListComponent', () => {
   });
 
   it('should error when getAllSimulators fails', () => {
-    spyOn(console, 'error').and.callFake(() => {});
-    spyOn(simulatorService, 'getAllSimulators').and.returnValue(throwError(() => 'error'));
+    jest.spyOn(console, 'error').mockImplementation();
+    jest.spyOn(simulatorService, 'getAllSimulators').mockReturnValue(throwError(() => 'error'));
 
     component.ngOnInit();
     fixture.detectChanges();
@@ -74,13 +75,14 @@ describe('SimulatorListComponent', () => {
   it('should show number of simulators', () => {
     const simulator = new Simulator({id: '123-321', name: 'test', });
 
-    spyOn(simulatorService, 'getAllSimulators').and.returnValue(of([simulator]));
+    jest.spyOn(simulatorService, 'getAllSimulators').mockReturnValue(of([simulator]));
 
     component.ngOnInit();
     fixture.detectChanges();
-
+    //phl(fixture); -- HTML pretty-print debugging tool
+    
     const simulatorCount = fixture.debugElement.query(By.css('#simulator-count')).nativeElement;
 
-    expect(simulatorCount.innerText).toContain('1');
+    expect(simulatorCount.innerHTML).toContain('1');
   });
 });
