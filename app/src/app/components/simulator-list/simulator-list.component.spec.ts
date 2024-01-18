@@ -74,7 +74,7 @@ describe('SimulatorListComponent', () => {
   it('should show number of simulators', () => {
     const simulator = new Simulator({id: '123-321', name: 'test', });
 
-    spyOn(simulatorService, 'getAllSimulators').and.returnValue(of([simulator]));
+    jest.spyOn(simulatorService, 'getAllSimulators').mockReturnValue(of([simulator]));
 
     component.ngOnInit();
     fixture.detectChanges();
