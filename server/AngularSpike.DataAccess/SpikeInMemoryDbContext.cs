@@ -20,24 +20,91 @@ namespace AngularSpike.DataAccess
                 .WithMany(x => x.NavigationProperties)
                 .HasForeignKey(x => x.NavigationSectionId);
 
-            modelBuilder.Entity<NavigationSection>().HasData(
-                new NavigationSection { Id = 1, Name = "Simulator" },
-                new NavigationSection { Id = 2, Name = "Project" },
-                new NavigationSection { Id = 3, Name = "Issue" }
-                );
-
-            modelBuilder.Entity<NavigationProperty>().HasData(
-                new NavigationProperty { Id = 1, Name = "Create Simulator", Route = "create-simulator", NavigationSectionId = 1 },
-                new NavigationProperty { Id = 2, Name = "All Simulators", Route = "all-simulators", NavigationSectionId = 1 },
-                new NavigationProperty { Id = 3, Name = "Edit Simulator", Route = "edit-simulator", NavigationSectionId = 1 },
-                new NavigationProperty { Id = 4, Name = "Advanced Search", Route = "project-advanced-search", NavigationSectionId = 2 },
-                new NavigationProperty { Id = 5, Name = "Create Project", Route = "create-project", NavigationSectionId = 2 },
-                new NavigationProperty { Id = 6, Name = "Advanced Search", Route = "issue-advanced-search", NavigationSectionId = 3 }
-                );
-
             modelBuilder.Entity<Simulator>().HasData(
-                new Simulator { Id = Guid.NewGuid(), Name = "Simulator 1", Email = "test@test.com", Address = "123 sim st" },
-                new Simulator { Id = Guid.NewGuid(), Name = "Simulator 2", Email = "test@test.com", Address = "123 sim st" }
+                new Simulator
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Simulator1",
+                    Location = "Simulation Center A",
+                    Destination = "Airport X",
+                    LeadCenter = "Training Facility 1",
+                    JobNumber = "JN001",
+                    Status = "Active",
+                    Type = "Flight",
+                    CorporateId = "Corp001",
+                    ShipDate = "2024-01-18",
+                    AircraftType = "Boeing 737"
+                },
+                new Simulator
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Simulator2",
+                    Location = "Simulation Center B",
+                    Destination = "Airport Y",
+                    LeadCenter = "Training Facility 2",
+                    JobNumber = "JN002",
+                    Status = "Inactive",
+                    Type = "Driving",
+                    CorporateId = "Corp002",
+                    ShipDate = "2024-01-19",
+                    AircraftType = "Airbus A320"
+                },
+                new Simulator
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Simulator3",
+                    Location = "Simulation Center C",
+                    Destination = "Airport Z",
+                    LeadCenter = "Training Facility 3",
+                    JobNumber = "JN003",
+                    Status = "Maintenance",
+                    Type = "Space",
+                    CorporateId = "Corp003",
+                    ShipDate = "2024-01-20",
+                    AircraftType = "Space Shuttle"
+                },
+                new Simulator
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Simulator4",
+                    Location = "Simulation Center D",
+                    Destination = "Space Station Alpha",
+                    LeadCenter = "Training Facility 4",
+                    JobNumber = "JN004",
+                    Status = "Ready",
+                    Type = "Space",
+                    CorporateId = "Corp004",
+                    ShipDate = "2024-01-21",
+                    AircraftType = "International Space Station"
+                },
+                new Simulator
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Simulator5",
+                    Location = "Simulation Center E",
+                    Destination = "Port A",
+                    LeadCenter = "Training Facility 5",
+                    JobNumber = "JN005",
+                    Status = "Active",
+                    Type = "Marine",
+                    CorporateId = "Corp005",
+                    ShipDate = "2024-01-22",
+                    AircraftType = "Submarine"
+                },
+                new Simulator
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Simulator6",
+                    Location = "Simulation Center F",
+                    Destination = "Harbor B",
+                    LeadCenter = "Training Facility 6",
+                    JobNumber = "JN006",
+                    Status = "Inactive",
+                    Type = "Marine",
+                    CorporateId = "Corp006",
+                    ShipDate = "2024-01-23",
+                    AircraftType = "Cargo Ship"
+                }
                 );
 
             base.OnModelCreating(modelBuilder);
