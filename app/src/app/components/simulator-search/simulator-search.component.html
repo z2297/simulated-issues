@@ -1,6 +1,6 @@
 <div class="simulator-search-container">
     <div class="button-container">
-        <button>Reset</button>
+        <button (click)="clear()" id="clear">Reset</button>
         <div class="spacer"></div>
         <button (click)="navigate()" id="submit">Submit</button>
     </div>
@@ -12,199 +12,199 @@
             <div class="search-item">
                 <span>Simulator:</span>
 
-                <select name="simulator" id="simulator" size="3">
+                <select [(ngModel)]="selectedSimulator" name="simulator" id="simulator" size="3" multiple>
                     <option value="sim1">sim1</option>
-                    <option value="sim1">sim1</option>
-                    <option value="sim1">sim1</option>
-                    <option value="sim1">sim1</option>
-                    <option value="sim1">sim1</option>
-                    <option value="sim1">sim1</option>
-                    <option value="sim1">sim1</option>
-                    <option value="sim1">sim1</option>
-                    <option value="sim1">sim1</option>
+                    <option value="sim2">sim2</option>
+                    <option value="sim3">sim3</option>
+                    <option value="sim4">sim4</option>
+                    <option value="sim5">sim5</option>
+                    <option value="sim6">sim6</option>
+                    <option value="sim7">sim7</option>
+                    <option value="sim8">sim8</option>
+                    <option value="sim9">sim9</option>
                 </select>
             </div>
             <div class="search-item">
                 <span>Location:</span>
 
-                <select name="location" id="location" size="3">
-                    <option value="sim1">location1</option>
-                    <option value="sim1">location1</option>
-                    <option value="sim1">location1</option>
-                    <option value="sim1">location1</option>
-                    <option value="sim1">location1</option>
-                    <option value="sim1">location1</option>
-                    <option value="sim1">location1</option>
-                    <option value="sim1">location1</option>
-                    <option value="sim1">location1</option>
+                <select [(ngModel)]="selectedLocation" name="location" id="location" size="3" multiple>
+                    <option value="location1">location1</option>
+                    <option value="location2">location2</option>
+                    <option value="location3">location3</option>
+                    <option value="location4">location4</option>
+                    <option value="location5">location5</option>
+                    <option value="location6">location6</option>
+                    <option value="location7">location7</option>
+                    <option value="location8">location8</option>
+                    <option value="location9">location9</option>
                 </select>
             </div>
             <div class="search-item">
                 <span>Aircraft:</span>
 
-                <select name="aircraft" id="aircraft" size="3">
-                    <option value="sim1">aircraft1</option>
-                    <option value="sim1">aircraft1</option>
-                    <option value="sim1">aircraft1</option>
-                    <option value="sim1">aircraft1</option>
-                    <option value="sim1">aircraft1</option>
-                    <option value="sim1">aircraft1</option>
-                    <option value="sim1">aircraft1</option>
-                    <option value="sim1">aircraft1</option>
-                    <option value="sim1">aircraft1</option>
+                <select [(ngModel)]="selectedAircraft" name="aircraft" id="aircraft" size="3" multiple>
+                    <option value="aircraft1">aircraft1</option>
+                    <option value="aircraft2">aircraft2</option>
+                    <option value="aircraft3">aircraft3</option>
+                    <option value="aircraft4">aircraft4</option>
+                    <option value="aircraft5">aircraft5</option>
+                    <option value="aircraft6">aircraft6</option>
+                    <option value="aircraft7">aircraft7</option>
+                    <option value="aircraft8">aircraft8</option>
+                    <option value="aircraft9">aircraft9</option>
                 </select>
             </div>
 
             <div class="search-item">
                 <span>Job Number:</span>
 
-                <select name="job" id="job" size="3">
-                    <option value="sim1">job1</option>
-                    <option value="sim1">job1</option>
-                    <option value="sim1">job1</option>
-                    <option value="sim1">job1</option>
-                    <option value="sim1">job1</option>
-                    <option value="sim1">job1</option>
-                    <option value="sim1">job1</option>
-                    <option value="sim1">job1</option>
-                    <option value="sim1">job1</option>
+                <select [(ngModel)]="selectedJob" name="job" id="job" size="3" multiple>
+                    <option value="job1">job1</option>
+                    <option value="job2">job2</option>
+                    <option value="job3">job3</option>
+                    <option value="job4">job4</option>
+                    <option value="job5">job5</option>
+                    <option value="job6">job6</option>
+                    <option value="job7">job7</option>
+                    <option value="job8">job8</option>
+                    <option value="job9">job9</option>
                 </select>
             </div>
             <div class="search-item">
                 <span>Asset Number:</span>
 
-                <select name="assetNumber" id="assetNumber" size="3">
-                    <option value="sim1">assetNumber1</option>
-                    <option value="sim1">assetNumber1</option>
-                    <option value="sim1">assetNumber1</option>
-                    <option value="sim1">assetNumber1</option>
-                    <option value="sim1">assetNumber1</option>
-                    <option value="sim1">assetNumber1</option>
-                    <option value="sim1">assetNumber1</option>
-                    <option value="sim1">assetNumber1</option>
-                    <option value="sim1">assetNumber1</option>
+                <select [(ngModel)]="selectedAssetNumber" name="assetNumber" id="assetNumber" size="3" multiple>
+                    <option value="assetNumber1">assetNumber1</option>
+                    <option value="assetNumber2">assetNumber2</option>
+                    <option value="assetNumber3">assetNumber3</option>
+                    <option value="assetNumber4">assetNumber4</option>
+                    <option value="assetNumber5">assetNumber5</option>
+                    <option value="assetNumber6">assetNumber6</option>
+                    <option value="assetNumber7">assetNumber7</option>
+                    <option value="assetNumber8">assetNumber8</option>
+                    <option value="assetNumber9">assetNumber9</option>
                 </select>
             </div>
             <div class="search-item">
                 <span>Sim Type:</span>
 
-                <select name="simType" id="simType" size="3">
-                    <option value="sim1">simType1</option>
-                    <option value="sim1">simType1</option>
-                    <option value="sim1">simType1</option>
-                    <option value="sim1">simType1</option>
-                    <option value="sim1">simType1</option>
-                    <option value="sim1">simType1</option>
-                    <option value="sim1">simType1</option>
-                    <option value="sim1">simType1</option>
-                    <option value="sim1">simType1</option>
+                <select [(ngModel)]="selectedSimulatorType" name="simType" id="simType" size="3" multiple>
+                    <option value="simType1">simType1</option>
+                    <option value="simType2">simType2</option>
+                    <option value="simType3">simType3</option>
+                    <option value="simType4">simType4</option>
+                    <option value="simType5">simType5</option>
+                    <option value="simType6">simType6</option>
+                    <option value="simType7">simType7</option>
+                    <option value="simType8">simType8</option>
+                    <option value="simType9">simType9</option>
                 </select>
             </div>
 
             <div class="search-item">
                 <span>Destination:</span>
 
-                <select name="destination" id="destination" size="3">
-                    <option value="sim1">destination1</option>
-                    <option value="sim1">destination1</option>
-                    <option value="sim1">destination1</option>
-                    <option value="sim1">destination1</option>
-                    <option value="sim1">destination1</option>
-                    <option value="sim1">destination1</option>
-                    <option value="sim1">destination1</option>
-                    <option value="sim1">destination1</option>
-                    <option value="sim1">destination1</option>
+                <select [(ngModel)]="selectedDestination" name="destination" id="destination" size="3" multiple>
+                    <option value="destination1">destination1</option>
+                    <option value="destination2">destination2</option>
+                    <option value="destination3">destination3</option>
+                    <option value="destination4">destination4</option>
+                    <option value="destination5">destination5</option>
+                    <option value="destination6">destination6</option>
+                    <option value="destination7">destination7</option>
+                    <option value="destination8">destination8</option>
+                    <option value="destination9">destination9</option>
                 </select>
             </div>
             <div class="search-item">
                 <span>Special Groups:</span>
 
-                <select name="specialGroups" id="specialGroups" size="3">
-                    <option value="sim1">specialGroups1</option>
-                    <option value="sim1">specialGroups1</option>
-                    <option value="sim1">specialGroups1</option>
-                    <option value="sim1">specialGroups1</option>
-                    <option value="sim1">specialGroups1</option>
-                    <option value="sim1">specialGroups1</option>
-                    <option value="sim1">specialGroups1</option>
-                    <option value="sim1">specialGroups1</option>
-                    <option value="sim1">specialGroups1</option>
+                <select [(ngModel)]="selectedSpecialGroups" name="specialGroups" id="specialGroups" size="3" multiple>
+                    <option value="specialGroups1">specialGroups1</option>
+                    <option value="specialGroups2">specialGroups2</option>
+                    <option value="specialGroups3">specialGroups3</option>
+                    <option value="specialGroups4">specialGroups4</option>
+                    <option value="specialGroups5">specialGroups5</option>
+                    <option value="specialGroups6">specialGroups6</option>
+                    <option value="specialGroups7">specialGroups7</option>
+                    <option value="specialGroups8">specialGroups8</option>
+                    <option value="specialGroups9">specialGroups9</option>
                 </select>
             </div>
             <div class="search-item">
                 <span>Status:</span>
 
-                <select name="status" id="status" size="3">
-                    <option value="sim1">status1</option>
-                    <option value="sim1">status1</option>
-                    <option value="sim1">status1</option>
-                    <option value="sim1">status1</option>
-                    <option value="sim1">status1</option>
-                    <option value="sim1">status1</option>
-                    <option value="sim1">status1</option>
-                    <option value="sim1">status1</option>
-                    <option value="sim1">status1</option>
+                <select [(ngModel)]="selectedStatus" name="status" id="status" size="3" multiple>
+                    <option value="status1">status1</option>
+                    <option value="status2">status2</option>
+                    <option value="status3">status3</option>
+                    <option value="status4">status4</option>
+                    <option value="status5">status5</option>
+                    <option value="status6">status6</option>
+                    <option value="status7">status7</option>
+                    <option value="status8">status8</option>
+                    <option value="status9">status9</option>
                 </select>
             </div>
 
             <div class="search-item">
                 <span>Manufacturers:</span>
 
-                <select name="manufacturer" id="manufacturer" size="3">
-                    <option value="sim1">manufacturer1</option>
-                    <option value="sim1">manufacturer1</option>
-                    <option value="sim1">manufacturer1</option>
-                    <option value="sim1">manufacturer1</option>
-                    <option value="sim1">manufacturer1</option>
-                    <option value="sim1">manufacturer1</option>
-                    <option value="sim1">manufacturer1</option>
-                    <option value="sim1">manufacturer1</option>
-                    <option value="sim1">manufacturer1</option>
+                <select [(ngModel)]="selectedManufacturer" name="manufacturer" id="manufacturer" size="3" multiple>
+                    <option value="manufacturer1">manufacturer1</option>
+                    <option value="manufacturer2">manufacturer2</option>
+                    <option value="manufacturer3">manufacturer3</option>
+                    <option value="manufacturer4">manufacturer4</option>
+                    <option value="manufacturer5">manufacturer5</option>
+                    <option value="manufacturer6">manufacturer6</option>
+                    <option value="manufacturer7">manufacturer7</option>
+                    <option value="manufacturer8">manufacturer8</option>
+                    <option value="manufacturer9">manufacturer9</option>
                 </select>
             </div>
             <div class="search-item">
                 <span>Project Type:</span>
 
-                <select name="projectType" id="projectType" size="3">
-                    <option value="sim1">projectType1</option>
-                    <option value="sim1">projectType1</option>
-                    <option value="sim1">projectType1</option>
-                    <option value="sim1">projectType1</option>
-                    <option value="sim1">projectType1</option>
-                    <option value="sim1">projectType1</option>
-                    <option value="sim1">projectType1</option>
-                    <option value="sim1">projectType1</option>
-                    <option value="sim1">projectType1</option>
+                <select [(ngModel)]="selectedProjectType" name="projectType" id="projectType" size="3" multiple>
+                    <option value="projectType1">projectType1</option>
+                    <option value="projectType2">projectType2</option>
+                    <option value="projectType3">projectType3</option>
+                    <option value="projectType4">projectType4</option>
+                    <option value="projectType5">projectType5</option>
+                    <option value="projectType6">projectType6</option>
+                    <option value="projectType7">projectType7</option>
+                    <option value="projectType8">projectType8</option>
+                    <option value="projectType9">projectType9</option>
                 </select>
             </div>
             <div class="search-item">
                 <span>Ship Date:</span>
 
-                <select name="shipDate" id="shipDate" size="3">
-                    <option value="sim1">shipDate1</option>
-                    <option value="sim1">shipDate1</option>
-                    <option value="sim1">shipDate1</option>
-                    <option value="sim1">shipDate1</option>
-                    <option value="sim1">shipDate1</option>
-                    <option value="sim1">shipDate1</option>
-                    <option value="sim1">shipDate1</option>
-                    <option value="sim1">shipDate1</option>
-                    <option value="sim1">shipDate1</option>
+                <select [(ngModel)]="selectedShipDate" name="shipDate" id="shipDate" size="3" multiple>
+                    <option value="shipDate1">shipDate1</option>
+                    <option value="shipDate2">shipDate2</option>
+                    <option value="shipDate3">shipDate3</option>
+                    <option value="shipDate4">shipDate4</option>
+                    <option value="shipDate5">shipDate5</option>
+                    <option value="shipDate6">shipDate6</option>
+                    <option value="shipDate7">shipDate7</option>
+                    <option value="shipDate8">shipDate8</option>
+                    <option value="shipDate9">shipDate9</option>
                 </select>
             </div>
             <div class="search-item">
                 <span>Lead Center:</span>
 
-                <select name="leadCenter" id="leadCenter" size="3">
-                    <option value="sim1">leadCenter1</option>
-                    <option value="sim1">leadCenter1</option>
-                    <option value="sim1">leadCenter1</option>
-                    <option value="sim1">leadCenter1</option>
-                    <option value="sim1">leadCenter1</option>
-                    <option value="sim1">leadCenter1</option>
-                    <option value="sim1">leadCenter1</option>
-                    <option value="sim1">leadCenter1</option>
-                    <option value="sim1">leadCenter1</option>
+                <select [(ngModel)]="selectedLeadCenter" name="leadCenter" id="leadCenter" size="3" multiple>
+                    <option value="leadCenter1">leadCenter1</option>
+                    <option value="leadCenter2">leadCenter2</option>
+                    <option value="leadCenter3">leadCenter3</option>
+                    <option value="leadCenter4">leadCenter4</option>
+                    <option value="leadCenter5">leadCenter5</option>
+                    <option value="leadCenter6">leadCenter6</option>
+                    <option value="leadCenter7">leadCenter7</option>
+                    <option value="leadCenter8">leadCenter8</option>
+                    <option value="leadCenter9">leadCenter9</option>
                 </select>
             </div>
             <div class="search-item"></div>

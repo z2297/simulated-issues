@@ -8,6 +8,6 @@ export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'create-simulator', component: CreateSimulatorComponent },
     { path: 'edit-simulator/:id', component: EditSimulatorComponent },
-    { path: 'all-simulators', component: SimulatorListComponent },
+    { path: 'simulator-results/:**', component: SimulatorListComponent },
     { path: 'simulator-search', component: SimulatorSearchComponent }
 ];
